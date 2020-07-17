@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './index.css';
 
@@ -8,7 +9,7 @@ const Navgator = ({ links }) => {
     <nav className="navgator">
       {links.map((link, i) => (
         <Link key={i} to={link.href} >
-          <i className={`fa fa-${link.icon}`} aria-hidden="true"></i>
+          <FontAwesomeIcon className="fa" icon={link.icon} />
           {link.text}
         </Link>
       ))}

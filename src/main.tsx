@@ -6,6 +6,7 @@ import {
 import Loadable from "react-loadable";
 import Header from './components/Header';
 import Navgator from './components/Navgator';
+import { faGem, faDotCircle } from '@fortawesome/free-regular-svg-icons'
 
 import './main.css';
 
@@ -40,8 +41,8 @@ const RouteWithSubRoutes = route => (
 );
 
 const links = [
-  { text: 'Index', href: "/", icon: 'diamond' },
-  { text: 'Profile', href: "/home", icon: 'dot-circle-o' },
+  { text: 'Index', href: "/", icon: faGem },
+  { text: 'Profile', href: "/home", icon: faDotCircle },
 ];
 
 const App = () => {

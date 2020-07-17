@@ -8,6 +8,10 @@ exports.style = {
   px2rem: false,
 };
 
+exports.react = {
+  useExternals: false
+};
+
 exports.plugins = [
   typescript()
 ];
