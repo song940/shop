@@ -1,0 +1,15 @@
+.header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  color: #fff;
+  position: fixed;
+  padding: 0 10px;
+  font-size: 12px;
+  font-family: monospace;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #ef4238;
+  padding-top: env(safe-area-inset-top);
+}

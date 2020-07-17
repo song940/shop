@@ -1,0 +1,24 @@
+.shop-item {
+  position: relative;
+  &-img {
+    float: left;
+    width: 100px;
+    height: 80px;
+    display: block;
+    margin-right: 10px;
+  }
+
+  &-title {
+    margin: 0;
+  }
+
+  &-price {
+    color: #f70;
+  }
+
+  &-cart {
+    top: 50%;
+    right: 0px;
+    position: absolute;
+  }
+}

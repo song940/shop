@@ -1,0 +1,39 @@
+.shopping-cart {
+  left: 20px;
+  right: 20px;
+  height: 50px;
+  position: fixed;
+  border-radius: 10px;
+  background-color: rgba(1,1,1, .75);
+  transition: height ease-in-out 300ms;
+  bottom: calc(env(safe-area-inset-bottom) + 70px);
+
+  &-checkout {
+    outline: none;
+    color: #fff;
+    right: 15px;
+    bottom: 15px;
+    position: absolute;
+    background-color: #f70;
+  }
+
+  &-item {
+    color: #fff;
+  }
+
+  &-list {
+    width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: none;
+    overflow-y: scroll;
+  }
+
+  &-open {
+    height: 65%;
+
+    .shopping-cart-list {
+      display: block;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Loadable from "react-loadable";
 import Header from './components/Header';
+import Navgator from './components/Navgator';
 
 import './main.css';
 
@@ -39,18 +40,19 @@ const RouteWithSubRoutes = route => (
 );
 
 const links = [
-  { text: 'Index', href: "/" },
-  { text: 'Home', href: "/home" },
+  { text: 'Index', href: "/", icon: 'diamond' },
+  { text: 'Profile', href: "/home", icon: 'dot-circle-o' },
 ];
 
 const App = () => {
   const { } = this.state;
   return (
     <Router>
-      <Header title="React App with Router" links={ links } />
+      <Header title="Shop" />
       <div className="content">
         {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
       </div>
+      <Navgator links={ links } />
     </Router>
   );
 };

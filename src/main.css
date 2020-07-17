@@ -1,0 +1,10 @@
+.container {
+  width: 90%;
+  margin: auto;
+  position: relative;
+}
+
+.content {
+  padding-top: 70px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 100px);
+}

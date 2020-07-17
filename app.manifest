@@ -1,0 +1,13 @@
+CACHE MANIFEST
+
+CACHE:
+icon.png
+index.html
+dist/js/main.js
+dist/css/main.css
+
+NETWORK:
+*
+
+SETTINGS:
+prefer-online

@@ -132,6 +132,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./node_modules/cls-str/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/cls-str/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\nfunction cls() {\n  return []\n    .slice\n    .call(arguments)\n    .map(function (c) {\n      switch (/\\[object (\\w+)\\]/.exec(({}).toString.call(c))[1]) {\n        case 'Array': return c;\n        case 'String': return [c];\n        case 'Object': return Object.keys(c).filter(function (k) {\n          return c[k];\n        });\n      }\n      return [];\n    })\n    .reduce(function (p, c) {\n      return p.concat(c)\n    }, [])\n    .filter(Boolean)\n    .reduce(function (p, c) {\n      if (p.indexOf(c) < 0) p.push(c);\n      return p;\n    }, []).join(' ');\n}\n\nmodule.exports = cls;\n\n//# sourceURL=webpack://App/./node_modules/cls-str/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/history/esm/history.js":
 /*!*********************************************!*\
   !*** ./node_modules/history/esm/history.js ***!
@@ -368,6 +379,40 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
+/***/ "./src/components/Cart/index.css":
+/*!***************************************!*\
+  !*** ./src/components/Cart/index.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://App/./src/components/Cart/index.css?");
+
+/***/ }),
+
+/***/ "./src/components/Cart/index.tsx":
+/*!***************************************!*\
+  !*** ./src/components/Cart/index.tsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __extends = (this && this.__extends) || (function () {\n    var extendStatics = function (d, b) {\n        extendStatics = Object.setPrototypeOf ||\n            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||\n            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };\n        return extendStatics(d, b);\n    };\n    return function (d, b) {\n        extendStatics(d, b);\n        function __() { this.constructor = d; }\n        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());\n    };\n})();\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar cls_str_1 = __importDefault(__webpack_require__(/*! cls-str */ \"./node_modules/cls-str/index.js\"));\nvar List_1 = __importDefault(__webpack_require__(/*! ../../components/List */ \"./src/components/List/index.tsx\"));\n__webpack_require__(/*! ./index.css */ \"./src/components/Cart/index.css\");\nvar Cart = /** @class */ (function (_super) {\n    __extends(Cart, _super);\n    function Cart() {\n        var _this = _super !== null && _super.apply(this, arguments) || this;\n        _this.state = {\n            items: [],\n            isOpen: false,\n        };\n        return _this;\n    }\n    Cart.prototype.addToCart = function (item) {\n        var items = this.state.items;\n        items.push(item);\n        this.setState({ items: items });\n    };\n    Cart.prototype.setOpen = function (isOpen) {\n        this.setState({ isOpen: isOpen });\n    };\n    Cart.prototype.checkout = function (e) {\n        e.preventDefault();\n        var items = this.state.items;\n        console.log('checkout', items);\n    };\n    Cart.prototype.render = function () {\n        var _this = this;\n        var _a = this.state, isOpen = _a.isOpen, items = _a.items;\n        return (react_1.default.createElement(\"div\", { className: cls_str_1.default('shopping-cart', { 'shopping-cart-open': isOpen }), onClick: function () { return _this.setOpen(!isOpen); } },\n            react_1.default.createElement(List_1.default, { className: \"shopping-cart-list\" }, items.map(function (item, i) { return react_1.default.createElement(List_1.default.Item, { key: i, className: \"shopping-cart-item\" }, item.title); })),\n            react_1.default.createElement(\"button\", { className: \"shopping-cart-checkout\", onClick: this.checkout.bind(this) }, \"Checkout\")));\n    };\n    return Cart;\n}(react_1.default.Component));\nexports.default = Cart;\n\n\n//# sourceURL=webpack://App/./src/components/Cart/index.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Header/index.css":
+/*!*****************************************!*\
+  !*** ./src/components/Header/index.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://App/./src/components/Header/index.css?");
+
+/***/ }),
+
 /***/ "./src/components/Header/index.tsx":
 /*!*****************************************!*\
   !*** ./src/components/Header/index.tsx ***!
@@ -376,7 +421,53 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\nvar Header = function (_a) {\n    var title = _a.title, links = _a.links;\n    return (react_1.default.createElement(\"header\", { className: \"header\" },\n        react_1.default.createElement(\"h1\", null, title),\n        react_1.default.createElement(\"nav\", { className: \"nav nav-bar\" }, links.map(function (link, i) { return react_1.default.createElement(react_router_dom_1.Link, { key: i, to: link.href }, link.text); }))));\n};\nexports.default = Header;\n\n\n//# sourceURL=webpack://App/./src/components/Header/index.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\n__webpack_require__(/*! ./index.css */ \"./src/components/Header/index.css\");\nvar Header = function (_a) {\n    var title = _a.title;\n    return (react_1.default.createElement(\"header\", { className: \"header\" },\n        react_1.default.createElement(\"h1\", null, title)));\n};\nexports.default = Header;\n\n\n//# sourceURL=webpack://App/./src/components/Header/index.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/List/index.css":
+/*!***************************************!*\
+  !*** ./src/components/List/index.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://App/./src/components/List/index.css?");
+
+/***/ }),
+
+/***/ "./src/components/List/index.tsx":
+/*!***************************************!*\
+  !*** ./src/components/List/index.tsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nvar __rest = (this && this.__rest) || function (s, e) {\n    var t = {};\n    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)\n        t[p] = s[p];\n    if (s != null && typeof Object.getOwnPropertySymbols === \"function\")\n        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {\n            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))\n                t[p[i]] = s[p[i]];\n        }\n    return t;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Item = exports.List = void 0;\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\n__webpack_require__(/*! ./index.css */ \"./src/components/List/index.css\");\nexports.List = function (_a) {\n    var className = _a.className, children = _a.children;\n    return (react_1.default.createElement(\"ul\", { className: \"list \" + className }, children));\n};\nexports.Item = function (_a) {\n    var className = _a.className, children = _a.children, props = __rest(_a, [\"className\", \"children\"]);\n    return (react_1.default.createElement(\"li\", __assign({ className: \"list-item \" + className }, props), children));\n};\nexports.List.Item = exports.Item;\nexports.default = exports.List;\n\n\n//# sourceURL=webpack://App/./src/components/List/index.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Navgator/index.css":
+/*!*******************************************!*\
+  !*** ./src/components/Navgator/index.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://App/./src/components/Navgator/index.css?");
+
+/***/ }),
+
+/***/ "./src/components/Navgator/index.tsx":
+/*!*******************************************!*\
+  !*** ./src/components/Navgator/index.tsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n__webpack_require__(/*! ./index.css */ \"./src/components/Navgator/index.css\");\nvar Navgator = function (_a) {\n    var links = _a.links;\n    return (react_1.default.createElement(\"nav\", { className: \"navgator\" }, links.map(function (link, i) { return (react_1.default.createElement(react_router_dom_1.Link, { key: i, to: link.href },\n        react_1.default.createElement(\"i\", { className: \"fa fa-\" + link.icon, \"aria-hidden\": \"true\" }),\n        link.text)); })));\n};\nexports.default = Navgator;\n\n\n//# sourceURL=webpack://App/./src/components/Navgator/index.tsx?");
 
 /***/ }),
 
@@ -399,7 +490,18 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://App/./s
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nvar _this = this;\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ \"react-dom\"));\nvar react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\nvar react_loadable_1 = __importDefault(__webpack_require__(/*! react-loadable */ \"./node_modules/react-loadable/lib/index.js\"));\nvar Header_1 = __importDefault(__webpack_require__(/*! ./components/Header */ \"./src/components/Header/index.tsx\"));\n__webpack_require__(/*! ./main.css */ \"./src/main.css\");\nvar loading = function () { return react_1.default.createElement(\"div\", null); };\nvar routes = [\n    {\n        path: \"/\",\n        exact: true,\n        component: react_loadable_1.default({\n            loading: loading,\n            loader: function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(/*! ./pages/index */ \"./src/pages/index/index.tsx\")); }); }\n        })\n    },\n    {\n        path: \"/home\",\n        component: react_loadable_1.default({\n            loading: loading,\n            loader: function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(/*! ./pages/home */ \"./src/pages/home/index.tsx\")); }); }\n        })\n    }\n];\nvar RouteWithSubRoutes = function (route) { return (react_1.default.createElement(react_router_dom_1.Route, { exact: route.exact, path: route.path, render: function (props) { return (react_1.default.createElement(route.component, __assign({}, props, { routes: route.routes }))); } })); };\nvar links = [\n    { text: 'Index', href: \"/\" },\n    { text: 'Home', href: \"/home\" },\n];\nvar App = function () {\n    var _a = _this.state;\n    return (react_1.default.createElement(react_router_dom_1.HashRouter, null,\n        react_1.default.createElement(Header_1.default, { title: \"React App with Router\", links: links }),\n        react_1.default.createElement(\"div\", { className: \"content\" }, routes.map(function (route, i) { return react_1.default.createElement(RouteWithSubRoutes, __assign({ key: i }, route)); }))));\n};\nreact_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));\n\n\n//# sourceURL=webpack://App/./src/main.tsx?");
+eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nvar _this = this;\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ \"react-dom\"));\nvar react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\nvar react_loadable_1 = __importDefault(__webpack_require__(/*! react-loadable */ \"./node_modules/react-loadable/lib/index.js\"));\nvar Header_1 = __importDefault(__webpack_require__(/*! ./components/Header */ \"./src/components/Header/index.tsx\"));\nvar Navgator_1 = __importDefault(__webpack_require__(/*! ./components/Navgator */ \"./src/components/Navgator/index.tsx\"));\n__webpack_require__(/*! ./main.css */ \"./src/main.css\");\nvar loading = function () { return react_1.default.createElement(\"div\", null); };\nvar routes = [\n    {\n        path: \"/\",\n        exact: true,\n        component: react_loadable_1.default({\n            loading: loading,\n            loader: function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(/*! ./pages/index */ \"./src/pages/index/index.tsx\")); }); }\n        })\n    },\n    {\n        path: \"/home\",\n        component: react_loadable_1.default({\n            loading: loading,\n            loader: function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(/*! ./pages/home */ \"./src/pages/home/index.tsx\")); }); }\n        })\n    }\n];\nvar RouteWithSubRoutes = function (route) { return (react_1.default.createElement(react_router_dom_1.Route, { exact: route.exact, path: route.path, render: function (props) { return (react_1.default.createElement(route.component, __assign({}, props, { routes: route.routes }))); } })); };\nvar links = [\n    { text: 'Index', href: \"/\", icon: 'diamond' },\n    { text: 'Profile', href: \"/home\", icon: 'dot-circle-o' },\n];\nvar App = function () {\n    var _a = _this.state;\n    return (react_1.default.createElement(react_router_dom_1.HashRouter, null,\n        react_1.default.createElement(Header_1.default, { title: \"Shop\" }),\n        react_1.default.createElement(\"div\", { className: \"content\" }, routes.map(function (route, i) { return react_1.default.createElement(RouteWithSubRoutes, __assign({ key: i }, route)); })),\n        react_1.default.createElement(Navgator_1.default, { links: links })));\n};\nreact_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));\n\n\n//# sourceURL=webpack://App/./src/main.tsx?");
+
+/***/ }),
+
+/***/ "./src/pages/home/index.css":
+/*!**********************************!*\
+  !*** ./src/pages/home/index.css ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://App/./src/pages/home/index.css?");
 
 /***/ }),
 
@@ -411,7 +513,18 @@ eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar Home = function () {\n    return (react_1.default.createElement(\"h2\", null, \"Home\"));\n};\nexports.default = Home;\n\n\n//# sourceURL=webpack://App/./src/pages/home/index.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\nvar List_1 = __importDefault(__webpack_require__(/*! ../../components/List */ \"./src/components/List/index.tsx\"));\n__webpack_require__(/*! ./index.css */ \"./src/pages/home/index.css\");\nvar Home = function () {\n    return (react_1.default.createElement(\"div\", { className: \"home\" },\n        react_1.default.createElement(\"h2\", null, \"Home\"),\n        react_1.default.createElement(List_1.default, null,\n            react_1.default.createElement(List_1.default.Item, null,\n                react_1.default.createElement(react_router_dom_1.Link, { to: \"/order\" },\n                    react_1.default.createElement(\"i\", { className: \"fa fa-flask\", \"aria-hidden\": \"true\" }),\n                    \" Order\")),\n            react_1.default.createElement(List_1.default.Item, null,\n                react_1.default.createElement(react_router_dom_1.Link, { to: \"/order\" },\n                    react_1.default.createElement(\"i\", { className: \"fa fa-flask\", \"aria-hidden\": \"true\" }),\n                    \" Help\")),\n            react_1.default.createElement(List_1.default.Item, null,\n                react_1.default.createElement(react_router_dom_1.Link, { to: \"/order\" },\n                    react_1.default.createElement(\"i\", { className: \"fa fa-flask\", \"aria-hidden\": \"true\" }),\n                    \" About\")))));\n};\nexports.default = Home;\n\n\n//# sourceURL=webpack://App/./src/pages/home/index.tsx?");
+
+/***/ }),
+
+/***/ "./src/pages/index/index.css":
+/*!***********************************!*\
+  !*** ./src/pages/index/index.css ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack://App/./src/pages/index/index.css?");
 
 /***/ }),
 
@@ -423,7 +536,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importDefault(__webpack_require__(/*! react */ \"react\"));\nvar Index = function () {\n    return react_1.default.createElement(\"h2\", null, \"Index\");\n};\nexports.default = Index;\n\n\n//# sourceURL=webpack://App/./src/pages/index/index.tsx?");
+eval("\nvar __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });\n}) : (function(o, m, k, k2) {\n    if (k2 === undefined) k2 = k;\n    o[k2] = m[k];\n}));\nvar __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {\n    Object.defineProperty(o, \"default\", { enumerable: true, value: v });\n}) : function(o, v) {\n    o[\"default\"] = v;\n});\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (k !== \"default\" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);\n    __setModuleDefault(result, mod);\n    return result;\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar react_1 = __importStar(__webpack_require__(/*! react */ \"react\"));\nvar List_1 = __importDefault(__webpack_require__(/*! ../../components/List */ \"./src/components/List/index.tsx\"));\nvar Cart_1 = __importDefault(__webpack_require__(/*! ../../components/Cart */ \"./src/components/Cart/index.tsx\"));\n__webpack_require__(/*! ./index.css */ \"./src/pages/index/index.css\");\nvar images = [\n    \"http://p0.meituan.net/200.0/deal/93b5e4a1ba3fbc84770ae260271953c382337.jpg@131_0_440_440a%7C267h_267w_2e_90Q\",\n    \"http://p1.meituan.net/200.0/deal/8f9b2bc4a21eaf69f7353a1a0e5c59ae111118.jpg@147_0_756_756a%7C267h_267w_2e_90Q\",\n    \"http://p0.meituan.net/200.0/deal/bfaa8df5ab37d762b8b50f592e52847e69425.jpg@142_0_533_533a%7C267h_267w_2e_90Q\",\n    \"http://p0.meituan.net/200.0/deal/35f38736d3d9ead1cde86c7eec1dac2837599.jpg@1_0_486_486a%7C267h_267w_2e_90Q\",\n    \"http://p1.meituan.net/200.0/deal/caffa7440cac3a82555ec5791ace77ef21445.jpg@205_0_300_300a%7C267h_267w_2e_90Q\",\n    \"http://p1.meituan.net/200.0/deal/01e62a815be586d19c9c351760e4a8e6115754.jpg@106_0_640_640a%7C267h_267w_2e_90Q\",\n    \"http://p1.meituan.net/200.0/deal/1d68949168ba1fa1ce7a76bee61f49d836378.jpg@86_0_267_267a%7C267h_267w_2e_100Q\",\n    \"http://p1.meituan.net/200.0/deal/d19262ce0f0c3163739870aec2b4b93465709.jpg@160_0_480_480a%7C267h_267w_2e_90Q\",\n    \"http://p0.meituan.net/200.0/deal/43602b3656f22ae50f909836c0dd3f8039600.jpg@95_0_330_330a%7C267h_267w_2e_90Q\",\n];\nvar data = function () {\n    var n = Math.random() * images.length | 0;\n    return {\n        title: 'Test',\n        description: 'A long description',\n        price: 8.88,\n        img: images[n]\n    };\n};\nvar list = [\n    data(),\n    data(),\n    data(),\n    data(),\n    data(),\n    data(),\n    data(),\n    data(),\n    data(),\n    data(),\n    data(),\n];\nvar Item = function (_a) {\n    var data = _a.data, addToCart = _a.addToCart;\n    var title = data.title, description = data.description, img = data.img, price = data.price;\n    return (react_1.default.createElement(List_1.default.Item, { className: \"shop-item\" },\n        react_1.default.createElement(\"img\", { className: \"shop-item-img\", src: img }),\n        react_1.default.createElement(\"h3\", { className: \"shop-item-title\" }, title),\n        react_1.default.createElement(\"p\", { className: \"shop-item-description\" }, description),\n        react_1.default.createElement(\"span\", { className: \"shop-item-price\" }, price),\n        react_1.default.createElement(\"button\", { className: \"shop-item-cart\", onClick: function () { return addToCart(data); } }, \"Add to Cart\")));\n};\nvar Index = function () {\n    var cart = react_1.useRef(null);\n    var addToCart = function (item) {\n        return cart.current.addToCart(item);\n    };\n    return (react_1.default.createElement(\"div\", { className: \"page page-index\" },\n        react_1.default.createElement(List_1.default, null, list.map(function (item, i) { return react_1.default.createElement(Item, { key: i, data: item, addToCart: addToCart }); })),\n        react_1.default.createElement(Cart_1.default, { ref: cart })));\n};\nexports.default = Index;\n\n\n//# sourceURL=webpack://App/./src/pages/index/index.tsx?");
 
 /***/ }),
 
